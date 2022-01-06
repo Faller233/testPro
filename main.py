@@ -39,10 +39,10 @@ if __name__ == "__main__":
 
     number = dt.hello()
     if (number > 0):
-        ui.showMsg("检测到" + str(number) + "个人,您好，请问你需要什么帮助吗")
+        ui.onlyAnswer("检测到" + str(number) + "个人。您好！请问您叫什么名字？")
         ui.changeMovie("hello")
     else:
-        ui.showMsg("没人吗这里？")
+        ui.onlyAnswer("请问这里有人吗!")
         ui.changeMovie("question")
     #默认状态
     window.show()

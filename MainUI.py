@@ -84,14 +84,14 @@ class Ui_Dialog(object):
 
         # 显示用户说话内容 获得回答之后回显
 
-    def showMsg(self, Msg):
-
-        self.userWords.setText(Msg)
-
-        answer = qa.Turing(Msg)
+    def onlyAnswer(self,answer):
         self.botWords.setText(answer)
-
         _thread.start_new_thread(self.speaker.speak, (answer,))
 
+    def showMsg(self, Msg):
+        self.userWords.setText(Msg)
+        answer = qa.Turing(Msg)
+        self.botWords.setText(answer)
+        _thread.start_new_thread(self.speaker.speak, (answer,))
         # 允许再次录音
         self.pushButton.setEnabled(True)
