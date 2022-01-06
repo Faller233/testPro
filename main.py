@@ -47,5 +47,4 @@ if __name__ == "__main__":
     #默认状态
     window.show()
 
-
     sys.exit(app.exec_())
