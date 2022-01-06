@@ -11,26 +11,14 @@ import FaceDetect as dt
 from MainUI import Ui_Dialog
 import threading, time
 
-# MyThread.py线程类
-# class MyThread(threading.Thread):
-#     def __init__(self, func, args=()):
-#         super(MyThread, self).__init__()
-#         self.func = func
-#         self.args = args
-#
-#     def run(self):
-#         time.sleep(2)
-#         self.result = self.func(*self.args)
-#
-#     def get_result(self):
-#         threading.Thread.join(self)  # 等待线程执行完毕
-#         try:
-#             return self.result
-#         except Exception:
-#             return None
+
+# import GetSimilarity as GetAns
 
 if __name__ == "__main__":
-    # print(233)
+    # while(True):
+    #     text = input()
+    #     print(GetAns.getAns(text))
+
     app = QtWidgets.QApplication(sys.argv)
     window = QtWidgets.QDialog()
     ui = Ui_Dialog()
