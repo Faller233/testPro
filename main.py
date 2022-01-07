@@ -12,12 +12,9 @@ from MainUI import Ui_Dialog
 import threading, time
 
 
-# import GetSimilarity as GetAns
+import GetSimilarity as GetAns
 
 if __name__ == "__main__":
-    # while(True):
-    #     text = input()
-    #     print(GetAns.getAns(text))
 
     app = QtWidgets.QApplication(sys.argv)
     window = QtWidgets.QDialog()
@@ -30,8 +27,8 @@ if __name__ == "__main__":
         ui.onlyAnswer("检测到" + str(number) + "个人。您好！请问您叫什么名字？")
         ui.changeMovie("hello")
     else:
-        ui.onlyAnswer("请问这里有人吗!")
-        ui.changeMovie("question")
+        ui.onlyAnswer("这里有人吗?")
+        ui.changeMovie("NoAns")
     #默认状态
     window.show()
 

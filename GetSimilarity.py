@@ -30,8 +30,11 @@ def calc_sim(model_path, train_path, test_sentence):
                 train_word_list = train_line_list[1].split()
                 train_word_list = PreProcess.clear_word_from_vocab(train_word_list, vocab)
                 if len(train_word_list) > 0:
-                    # n_similarity
-                    sim_score[i] = model.wv.n_similarity(test_word_list, train_word_list)
+                    if len(test_word_list)>0:
+                        # n_similarity
+                        sim_score[i] = model.wv.n_similarity(test_word_list, train_word_list)
+                    else:
+                        return -1
                 i += 1
     sim_score = sorted(sim_score.items(), key=lambda d: d[1], reverse=True)
     return sim_score[0][0]
@@ -69,8 +72,10 @@ def getAns(test):
     #计算相似度
     ans = calc_sim(GlobalParament.model_output_path, GlobalParament.train_after_process_text_dir,
              TestSentences)
-
-    ansSentennce = Showans(ans,GlobalParament.ans_path)
+    if ans== -1:
+        return "啊咧，小助手不知道这个问题呢"
+    else:
+        ansSentennce = Showans(ans,GlobalParament.ans_path)
     return ansSentennce
 
     #处理文本数据，训练测试用
